@@ -17,6 +17,11 @@ Install the YOLOv8 package and required dependencies:
 !pip install ultralytics
 ```
 
+### **1.3 Verify GPU availability**
+```bash
+!nvidia-smi
+```
+
 ---
 
 ## **2. Prepare the Dataset**
@@ -41,10 +46,29 @@ from google.colab import drive
 drive.mount('/content/drive')
 ```
 
-### **2.3 Copy Dataset to Local Storage**
+### **2.3 Verify your dataset location in Google Drive**
+```bash
+!ls /content/drive/MyDrive/Datasets/final_fortnite_yolov8_dataset
+```
+
+### **2.4 Copy Dataset to Local Storage**
 Copy the dataset from Google Drive to Colab's local storage for faster access:
 ```bash
-!cp -r /content/drive/MyDrive/dataset /content/dataset
+!cp -r /content/drive/MyDrive/Datasets/final_fortnite_yolov8_dataset /content/dataset
+```
+
+### **2.5 Optional: Copy Existing Model to Local Storage**
+```bash
+!cp -r /content/drive/MyDrive/models/yolo_model.pt /content
+```
+
+### **2.6 Verify Dataset Structure**
+List files to confirm:
+```bash
+!ls /content/dataset/train/images
+!ls /content/dataset/train/labels
+!ls /content/dataset/val/images
+!ls /content/dataset/val/labels
 ```
 
 ---
@@ -58,21 +82,26 @@ data_yaml = """
 train: /content/dataset/train/images
 val: /content/dataset/val/images
 
-nc: 1
-names: ['target_symbol']
+nc: 3
+names: ['eliminated', 'knocked', 'victory']
 """
 
 with open('/content/data.yaml', 'w') as f:
     f.write(data_yaml)
 ```
 
-### **3.2 Train the Model**
+### **3.2 Verify the contents of the data.yaml file**
+```bash
+!cat /content/data.yaml
+```
+
+### **3.3 Train the Model**
 Run the following code to train the model:
 ```python
 from ultralytics import YOLO
 
 # Load the pretrained YOLOv8 model
-model = YOLO('yolov8s.pt')
+model = YOLO('yolov8s.pt')  # Path to the pretrained weights
 
 # Train the model
 model.train(
@@ -92,6 +121,15 @@ model.train(
 By default, the trained weights are saved in:
 ```
 /content/runs/train/exp/weights/best.pt
+```
+
+Sometimes bash commands stop working after training. To list content in a directory with python:
+```python
+import os
+
+items = os.listdir("/content/runs/detect/train2")
+for item in items:
+    print(item)
 ```
 
 ### **4.2 Check for Missing `best.pt`
