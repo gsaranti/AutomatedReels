@@ -2,9 +2,11 @@
 
 import os
 
-# Paths to your image and label directories
-image_dir = "../../../Google Drive/My Drive/Datasets/fortnite_elimination_count_logo_v1_reformat/val/images"
-label_dir = "../../../Google Drive/My Drive/Datasets/fortnite_elimination_count_logo_v1_reformat/val/labels"
+image_dir = "../../../../../../../Desktop/final_fortnite_color_yolov8_dataset/val/images"
+label_dir = "../../../../../../../Desktop/final_fortnite_color_yolov8_dataset/val/labels"
+
+# image_dir = "../../../../../../../Google Drive/My Drive/Datasets/final_fortnite_yolov8_dataset/val/images"
+# label_dir = "../../../../../../../Google Drive/My Drive/Datasets/final_fortnite_yolov8_dataset/val/labels"
 
 # List to store image files without matching label files
 missing_labels = []

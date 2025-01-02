@@ -48,13 +48,13 @@ drive.mount('/content/drive')
 
 ### **2.3 Verify your dataset location in Google Drive**
 ```bash
-!ls /content/drive/MyDrive/Datasets/final_fortnite_yolov8_dataset
+!ls /content/drive/MyDrive/Datasets/final_fortnite_color_yolov8_dataset
 ```
 
 ### **2.4 Copy Dataset to Local Storage**
 Copy the dataset from Google Drive to Colab's local storage for faster access:
 ```bash
-!cp -r /content/drive/MyDrive/Datasets/final_fortnite_yolov8_dataset /content/dataset
+!cp -r /content/drive/MyDrive/Datasets/final_fortnite_color_yolov8_dataset /content/dataset
 ```
 
 ### **2.5 Optional: Copy Existing Model to Local Storage**
@@ -83,7 +83,7 @@ train: /content/dataset/train/images
 val: /content/dataset/val/images
 
 nc: 3
-names: ['eliminated', 'knocked', 'victory']
+names: ['eliminated', 'knocked', 'victory_royale']
 """
 
 with open('/content/data.yaml', 'w') as f:
@@ -106,10 +106,11 @@ model = YOLO('yolov8s.pt')  # Path to the pretrained weights
 # Train the model
 model.train(
     data='/content/data.yaml',  # Path to dataset configuration
-    epochs=50,                  # Number of training epochs
+    epochs=25,                  # Number of training epochs
     batch=8,                    # Batch size
     imgsz=1920,                 # Image resolution
-    device=0                    # Use GPU
+    device=0,                   # Use GPU
+    cos_lr=True
 )
 ```
 
@@ -127,7 +128,7 @@ Sometimes bash commands stop working after training. To list content in a direct
 ```python
 import os
 
-items = os.listdir("/content/runs/detect/train2")
+items = os.listdir("/content/runs/detect/train")
 for item in items:
     print(item)
 ```
@@ -193,12 +194,12 @@ The annotated images will be saved in:
 ### **6.1 Download the Model to Local Machine**
 ```python
 from google.colab import files
-files.download('/content/runs/train/train/weights/best.pt')
+files.download('/content/runs/detect/train/weights/best.pt')
 ```
 
 ### **6.2 Save the Model to Google Drive**
 ```bash
-!cp /content/runs/train/train/weights/best.pt /content/drive/MyDrive/best.pt
+!cp /content/runs/detect/train/weights/best.pt /content/drive/MyDrive/best.pt
 ```
 
 ---
