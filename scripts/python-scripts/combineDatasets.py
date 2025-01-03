@@ -12,7 +12,9 @@ def combine_yolo_datasets(input_dirs, output_dir):
     # Define subdirectories to combine
     subdirs = [
         "train/images",
+        "train/labels",
         "val/images",
+        "val/labels"
     ]
 
     # Ensure the output directory structure exists
