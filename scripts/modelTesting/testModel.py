@@ -3,7 +3,7 @@ import os
 from ultralytics import YOLO
 
 # Hardcoded paths
-FOLDER_PATH = "../../../../../../../Desktop/test/color"
+FOLDER_PATH = "../../../../../../../Desktop/test/"
 MODEL_PATH = "../../../../local_models/best_isolated_local.pt"
 
 def process_images(folder_path, model):
