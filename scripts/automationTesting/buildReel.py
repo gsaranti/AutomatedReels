@@ -125,7 +125,6 @@ def create_clips(video_path, segments, output_dir):
         subprocess.run(ffmpeg_command)
 
 
-
 def merge_clips(output_dir, output_video_path):
     """Merges all the clips into a single video."""
     clips = sorted([os.path.join(output_dir, f) for f in os.listdir(output_dir) if f.endswith('.mp4')])
