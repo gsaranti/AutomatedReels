@@ -2,11 +2,12 @@ import subprocess
 import numpy as np
 from collections import defaultdict
 from ultralytics import YOLO
+import torch
 
 # Paths
-VIDEO_PATH = "../../../../../../fort4.mp4"
+VIDEO_PATH = "../../../../../../PostProcessTestClip.mp4"
 MODEL_PATH = "../../../../local_models/best_isolated_local.pt"
-OUTPUT_FILE = "detection_results.txt"
+OUTPUT_FILE = "../../docs/ffmpeg-pre-process-ranked.txt"
 
 # YOLO Model
 model = YOLO(MODEL_PATH)
@@ -73,7 +74,7 @@ def stream_frames_and_detect(video_path, fps=2):
 
                     frame = np.frombuffer(frame_data, np.uint8).reshape((frame_size[1], frame_size[0], 3))
 
-                    results = model(frame, conf=0.5)
+                    results = model(frame, conf=0.5, device='mps')
 
                     detected_objects = {}
                     for box in results[0].boxes:

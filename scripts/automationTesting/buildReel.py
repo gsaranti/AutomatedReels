@@ -16,30 +16,13 @@ def stream_frames_and_detect(video_path, fps=2):
     """Streams pre-processed frames from the video using FFmpeg and detects objects."""
     detected_timestamps = []
 
-    # ffmpeg_command = [
-    #     "ffmpeg",
-    #     "-i", video_path,
-    #     "-vf", (
-    #         f"fps={fps},format=bgr24,"  # Set FPS and output format
-    #         "colorchannelmixer=.3:.3:.3:0:.3:.3:.3:0:.3:.3:.3:0,"  # Convert to grayscale
-    #         "eq=saturation=0.0:contrast=1.5:brightness=0.1,"  # Adjust brightness/contrast
-    #         "format=yuv420p"
-    #     ),
-    #     "-f", "rawvideo",
-    #     "-pix_fmt", "bgr24",
-    #     "-hide_banner",
-    #     "-loglevel", "error",
-    #     "pipe:1"
-    # ]
-
-    # Darker frames than above
     ffmpeg_command = [
         "ffmpeg",
         "-i", video_path,
         "-vf", (
             f"fps={fps},format=bgr24,"  # Set FPS and output format
-            "colorchannelmixer=.2:.2:.2:0:.2:.2:.2:0:.2:.2:.2:0,"  # Adjust grayscale weights
-            "eq=saturation=0.0:contrast=3.0:brightness=0.1,"  # Increase contrast and brighten whites
+            "colorchannelmixer=.19:.19:.19:0:.19:.19:.19:0:.19:.19:.19:0,"  # Adjust grayscale weights
+            "eq=saturation=0.0:contrast=7.0:brightness=0.5,"  # Increase contrast and brighten whites
             "format=yuv420p"
         ),
         "-f", "rawvideo",
