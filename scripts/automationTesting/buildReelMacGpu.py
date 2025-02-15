@@ -5,9 +5,9 @@ from ultralytics import YOLO
 import torch
 
 # Paths
-VIDEO_PATH = "../../../../../../fort4.mp4"
+VIDEO_PATH = "../../../../../../fort3.mp4"
 MODEL_PATH = "../../../../local_models/best_isolated_local.pt"
-OUTPUT_VIDEO_PATH = "../../../../../../output_video_3.mp4"
+OUTPUT_VIDEO_PATH = "../../../../../../output_video_4.mp4"
 TEMP_CLIPS_DIR = "./temp_clips"
 
 # YOLO Model
