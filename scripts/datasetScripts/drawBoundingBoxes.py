@@ -1,11 +1,18 @@
+"""
+This script visualizes a YOLO dataset. It should be used to validate that the label data is accurate
+so that bounding boxes are correctly set.
+
+Parameters:
+  - images_dir: Path to dataset images directory.
+  - labels_dir: Path to dataset labels directory.
+  - class_names: List of the dataset class names
+"""
+
 import cv2
 import os
 
-# Paths
 images_dir = '../../../../../../../Desktop/final_fortnite_color_yolov8_dataset/val/images'
 labels_dir = '../../../../../../../Desktop/final_fortnite_color_yolov8_dataset/val/labels'
-
-# Class names (optional, for display)
 class_names = ["eliminated", "knocked", "victory_royale"]  # Update with your class names
 
 # Iterate over images

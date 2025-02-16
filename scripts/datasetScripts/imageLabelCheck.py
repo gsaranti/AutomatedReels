@@ -1,4 +1,10 @@
-# Script to confirm that a YOLO dataset has a label file for each image.
+"""
+This script confirms that a YOLO dataset has a label file for each image.
+
+Parameters:
+  - image_dir: Path to dataset images directory.
+  - label_dir: Path to dataset labels directory.
+"""
 
 import os
 

@@ -1,14 +1,24 @@
+"""
+This script combines multiple YOLO dataset directories into a single dataset.
+
+Parameters:
+  - input_dirs: List of paths to the input YOLO dataset directories.
+  - output_dir: Path to the output YOLO dataset directory.
+"""
+
 import os
 import shutil
 
-def combine_yolo_datasets(input_dirs, output_dir):
-    """
-    Combines multiple YOLO dataset directories into a single dataset.
+input_directories = [
+    "",  # Replace with paths to your input YOLO datasets
+    "",
+    "",
+    ""
+]
+output_directory = ""  # Replace with the path to the output dataset
 
-    Parameters:
-    - input_dirs: List of paths to the input YOLO dataset directories.
-    - output_dir: Path to the output YOLO dataset directory.
-    """
+
+def combine_yolo_datasets(input_dirs, output_dir):
     # Define subdirectories to combine
     subdirs = [
         "train/images",
@@ -46,12 +56,5 @@ def combine_yolo_datasets(input_dirs, output_dir):
 
     print("Dataset combination complete.")
 
-# Example usage
-input_directories = [
-    "../../../../../../../Desktop/one",  # Replace with paths to your input YOLO datasets
-    "../../../../../../../Desktop/two",
-    "../../../../../../../Desktop/three",
-    "../../../../../../../Desktop/four"
-]
-output_directory = "../../../../../../../Desktop/final_fortnite_color_yolov8_dataset"  # Replace with the path to the output dataset
+
 combine_yolo_datasets(input_directories, output_directory)

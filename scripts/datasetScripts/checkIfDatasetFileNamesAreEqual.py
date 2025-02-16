@@ -14,7 +14,7 @@ import os
 # Configure your folder paths
 folder1 = ""
 folder2 = ""  # Folder with postfix if needed
-postfix = "_isolated_final"  # Optional
+postfix = ""  # Optional
 
 
 def get_base_filenames(folder, allow_postfix=False):
