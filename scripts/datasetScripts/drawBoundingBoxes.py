@@ -11,8 +11,8 @@ Parameters:
 import cv2
 import os
 
-images_dir = '../../../../../../../Desktop/final_fortnite_color_yolov8_dataset/val/images'
-labels_dir = '../../../../../../../Desktop/final_fortnite_color_yolov8_dataset/val/labels'
+images_dir = ''
+labels_dir = ''
 class_names = ["eliminated", "knocked", "victory_royale"]  # Update with your class names
 
 # Iterate over images
