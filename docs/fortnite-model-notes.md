@@ -15,8 +15,4 @@ Current script values set for this dataset are:
 * value_min=125
 * saturation_max=50
 
-Unedited images exists in "base_fortnite_yolov8_dataset".
-Note that the labels are only in Google Drive in "final_fortnite_yolov8_dataset".
-
-Label files in "final_fortnite_yolov8_dataset" would need to be re-named to match the 
-image files name in "base_fortnite_yolov8_dataset".
+Unedited images exists in "final_fortnite_color_yolov8_dataset".
