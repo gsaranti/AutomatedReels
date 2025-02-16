@@ -10,7 +10,7 @@ import cv2
 import os
 from ultralytics import YOLO
 
-FOLDER_PATH = "../../../../../../../Desktop/frames"
+FOLDER_PATH = ""
 MODEL_PATH = "../../models/best_isolated.pt"
 
 
