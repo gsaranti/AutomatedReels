@@ -1,13 +1,20 @@
+"""
+This script processes all images in a given folder using a YOLO model.
+
+Parameters:
+  - FOLDER_PATH: Path to images.
+  - MODEL_PATH: Path to model.
+"""
+
 import cv2
 import os
 from ultralytics import YOLO
 
-# Hardcoded paths
-FOLDER_PATH = "../../../../../../../Desktop/test/"
-MODEL_PATH = "../../../../local_models/best_isolated_local.pt"
+FOLDER_PATH = "../../../../../../../Desktop/frames"
+MODEL_PATH = "../../models/best_isolated.pt"
+
 
 def process_images(folder_path, model):
-    """Processes all images in the given folder using the YOLO model."""
     image_files = [f for f in os.listdir(folder_path) if f.lower().endswith(('png', 'jpg', 'jpeg'))]
 
     if not image_files:
@@ -41,6 +48,7 @@ def process_images(folder_path, model):
 
     cv2.destroyAllWindows()
 
+
 def main():
     if not os.path.exists(FOLDER_PATH):
         print("The specified folder path does not exist.")
@@ -55,6 +63,7 @@ def main():
 
     # Process the images
     process_images(FOLDER_PATH, model)
+
 
 if __name__ == "__main__":
     main()
